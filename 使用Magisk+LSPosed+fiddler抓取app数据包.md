@@ -6,11 +6,11 @@
 
 说回正文，当我们测试APP进行抓包的时候的时候，有时候会碰到如下情况，APP内提示：网络异常。
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250228153956992.png" alt="image-20250228153956992" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250228153956992.png" alt="image-20250228153956992" style="zoom:50%;" />
 
 而在抓包软件（本人更习惯使用fiddler）中显示的情况如下：
 
-![image-20250228154046179](C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250228154046179.png)
+![image-20250228154046179](https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250228154046179.png)
 
 这时候很多人的第一反应是证书问题，可能是fidder证书没有导入进来，确认一遍又一遍之后还是不行。
 
@@ -32,7 +32,7 @@ SSL/TLS Pinning提供了两种锁定方式： **Certificate Pinning（证书锁�
 
 如图所示，系统默认预置证书和用户证书
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250228165743711.png" alt="image-20250228165743711" style="zoom:50%;" />         <img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250228165841714.png" alt="image-20250228165841714" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250228165743711.png" alt="image-20250228165743711" style="zoom:50%;" />         <img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250228165841714.png" alt="image-20250228165841714" style="zoom:50%;" />
 
 当我们使用抓包工具抓包时，抓包工具在拦截了服务端返回的内容并重新发给客户端的时候使用证书不是服务器端原来的证书，而是抓包工具自己的，抓包工具原来的证书并不是APP开发者设定的服务端原本的证书，于是就构成了中间人攻击，触发SSLPinning机制导致通信中断，所以我们无法直接抓到包。
 
@@ -82,7 +82,7 @@ SSL/TLS Pinning提供了两种锁定方式： **Certificate Pinning（证书锁�
 
 所需软件清单，附上下载地址：
 
-![image-20250228172755956](C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250228172755956.png)
+![image-20250228172755956](https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250228172755956.png)
 
 Magisk下载地址：[Github_Kitsune Magisk](https://huskydg.github.io/magisk-files/)
 
@@ -98,72 +98,72 @@ TrustMeAlready下载地址：[Github_TrustMeAlready](https://github.com/ViRb3/Tr
 
 这里不再赘述，**注意：需要开启模拟器root权限**
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250228174440705.png" alt="image-20250228174440705" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250228174440705.png" alt="image-20250228174440705" style="zoom:50%;" />
 
 ### 2、安装/设置Magisk Delta
 
 安装Magisk Delta，安装完成后打开，点击“允许”超级用户权限
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304203257456.png" alt="image-20250304203257456" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304203257456.png" alt="image-20250304203257456" style="zoom:50%;" />
 
 点击Magisk右边的安装
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304203408987.png" alt="image-20250304203408987" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304203408987.png" alt="image-20250304203408987" style="zoom:50%;" />
 
 模拟器提醒请求访问权限，点击“允许”
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304203529148.png" alt="image-20250304203529148" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304203529148.png" alt="image-20250304203529148" style="zoom:50%;" />
 
 <font color=red>**取消勾选**</font>，并点击下一步
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304203718457.png" alt="image-20250304203718457" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304203718457.png" alt="image-20250304203718457" style="zoom:50%;" />
 
 选择“**直接安装(直接修改/system)**”，然后点击“开始”， 开始安装。<font color=red>**如果没有看到该选项，可以在机型设置中更换品牌型号，重启模拟器。**</font>
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304204044924.png" alt="image-20250304204044924" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304204044924.png" alt="image-20250304204044924" style="zoom:50%;" />
 
 安装完成后重启手机（建议手动重启）
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304204632089.png" alt="image-20250304204632089" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304204632089.png" alt="image-20250304204632089" style="zoom:50%;" />
 
 重启后再次进入Magisk，进入后可能会提醒“检测到不属于Maigsk的su文件，请删除其他超级用户程序”。此提醒可以忽略不计，因为模拟器的系统已经内置了su文件，这个文件用于获取超级权限，而安装magisk后也会有个su文件，所以程序提示冲突，但是不影响使用。
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304204853201.png" alt="image-20250304204853201" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304204853201.png" alt="image-20250304204853201" style="zoom:50%;" />
 
 这时，我们可以看到我们已经成功安装了，下面的超级用户和模块都已经是可使用状态
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304205152533.png" alt="image-20250304205152533" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304205152533.png" alt="image-20250304205152533" style="zoom:50%;" />
 
 点击设置，打开Zygisk并重启
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304205657404.png" alt="image-20250304205657404" style="zoom:33%;" />             <img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304210103343.png" alt="image-20250304210103343" style="zoom:25%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304205657404.png" alt="image-20250304205657404" style="zoom:33%;" />             <img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304210103343.png" alt="image-20250304210103343" style="zoom:25%;" />
 
 先将LSPosed-zygisk-release.zip 移动到模拟器中。点击模块，选择从本地安装，选择LSPosed-zygisk-release.zip进行安装
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304210331322.png" alt="image-20250304210331322" style="zoom:33%;" />    <img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304210705997.png" alt="image-20250304210705997" style="zoom: 50%;" /><img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304210859747.png" alt="image-20250304210859747" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304210331322.png" alt="image-20250304210331322" style="zoom:33%;" />    <img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304210705997.png" alt="image-20250304210705997" style="zoom: 50%;" /><img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304210859747.png" alt="image-20250304210859747" style="zoom:33%;" />
 
 安装完成后，继续重启
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304210949204.png" alt="image-20250304210949204" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304210949204.png" alt="image-20250304210949204" style="zoom:33%;" />
 
 ### 3、LSPoed+TrustMeAlready
 
 安装LSPosed.APK
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304211433958.png" alt="image-20250304211433958" style="zoom: 33%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304211433958.png" alt="image-20250304211433958" style="zoom: 33%;" />
 
 安装TrustMeAlready.apk
 
 打开LSPosed，系统显示已激活，点击下方模块
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304211855094.png" alt="image-20250304211855094" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304211855094.png" alt="image-20250304211855094" style="zoom:50%;" />
 
 选择TrustMeAlready，点击“启用模块”，勾选需要抓包的app
 
-<img src="C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304212122887.png" alt="image-20250304212122887" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304212122887.png" alt="image-20250304212122887" style="zoom:50%;" />
 
 ## 效果演示
 
 现在使用fiddler抓包，成功get！ （fiddler使用方法fiddler抓包一文）
 
-![image-20250304221955287](C:\Users\13164\AppData\Roaming\Typora\typora-user-images\image-20250304221955287.png)
+![image-20250304221955287](https://raw.githubusercontent.com/y4ngwei/testNx/main/img/image-20250304221955287.png)
